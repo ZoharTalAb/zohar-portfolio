@@ -1,0 +1,599 @@
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zohar Avramoviz | Backend Developer &amp; CS Student</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-secondary": "#472a00",
+                "on-secondary-fixed-variant": "#653e00",
+                "surface-bright": "#343b36",
+                "on-primary": "#003824",
+                "inverse-primary": "#006c49",
+                "outline-variant": "#3c4a42",
+                "secondary": "#ffb95f",
+                "on-tertiary-container": "#711419",
+                "surface-container-high": "#242c27",
+                "on-primary-container": "#00422b",
+                "inverse-surface": "#dde4dd",
+                "surface-container": "#1a211d",
+                "error-container": "#93000a",
+                "surface-variant": "#2f3632",
+                "primary": "#4edea3",
+                "on-surface-variant": "#bbcabf",
+                "surface-container-lowest": "#09100c",
+                "surface-dim": "#0e1511",
+                "surface-tint": "#4edea3",
+                "surface-container-low": "#161d19",
+                "tertiary": "#ffb3af",
+                "background": "#0e1511",
+                "surface-container-highest": "#2f3632",
+                "secondary-fixed": "#ffddb8",
+                "on-primary-fixed-variant": "#005236",
+                "tertiary-fixed": "#ffdad7",
+                "primary-container": "#10b981",
+                "outline": "#86948a",
+                "on-error-container": "#ffdad6",
+                "on-tertiary-fixed": "#410005",
+                "tertiary-container": "#fc7c78",
+                "error": "#ffb4ab",
+                "surface": "#0e1511",
+                "on-secondary-fixed": "#2a1700",
+                "on-primary-fixed": "#002113",
+                "secondary-fixed-dim": "#ffb95f",
+                "primary-fixed": "#6ffbbe",
+                "primary-fixed-dim": "#4edea3",
+                "inverse-on-surface": "#2b322d",
+                "on-error": "#690005",
+                "secondary-container": "#ee9800",
+                "on-tertiary": "#650911",
+                "on-tertiary-fixed-variant": "#842225",
+                "tertiary-fixed-dim": "#ffb3af",
+                "on-surface": "#dde4dd",
+                "on-secondary-container": "#5b3800",
+                "on-background": "#dde4dd"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-mobile": "16px",
+                "gutter": "24px",
+                "container-max": "1200px",
+                "base": "8px",
+                "section-gap": "80px"
+        },
+        "fontFamily": {
+                "headline-lg": [
+                        "Geist"
+                ],
+                "display-lg": [
+                        "Geist"
+                ],
+                "label-md": [
+                        "JetBrains Mono"
+                ],
+                "headline-xl": [
+                        "Geist"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "headline-xl-mobile": [
+                        "Geist"
+                ],
+                "headline-md": [
+                        "Geist"
+                ],
+                "body-md": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "headline-lg": [
+                        "30px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-xl": [
+                        "36px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-xl-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .glass {
+            background: rgba(21, 29, 25, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .glow-border {
+            border: 1px solid rgba(78, 222, 163, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glow-border:hover {
+            border-color: rgba(78, 222, 163, 0.5);
+            box-shadow: 0 0 24px rgba(78, 222, 163, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #4edea3 0%, #ffb95f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981 0%, #ee9800 100%);
+            color: #fff;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.25);
+        }
+        .terminal-header span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .portrait-glow {
+            box-shadow: 0 0 30px rgba(78, 222, 163, 0.2), inset 0 0 20px rgba(78, 222, 163, 0.1);
+            border: 1px solid rgba(78, 222, 163, 0.3);
+        }
+    </style>
+</head><body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container antialiased">
+<!-- Header Navigation -->
+<header class="fixed top-0 w-full z-50 glass border-b border-outline-variant/20">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-center gap-base">
+<span class="font-headline-md text-headline-md tracking-tight text-on-surface">Zohar Avramoviz</span>
+<span class="hidden md:inline text-outline font-label-md text-label-md pt-1">| Backend Developer | Computer Science Student</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md font-medium" href="#about">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md font-medium" href="#projects">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md font-medium" href="#skills">Skills</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md font-medium" href="#experience">Experience</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md font-medium" href="#contact">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex gap-4 mr-4">
+<a class="text-outline hover:text-primary transition-colors w-6 h-6 block" href="https://github.com/ZoharTalAb" rel="noopener noreferrer" target="_blank">
+<img alt="GitHub" class="w-full h-full object-contain filter invert opacity-80 hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkUNd5WLBKRSMzla9q9dsenEOJelPvHD1U-cnVjL1JFJyU9aP4_GF8lxb9Azwd3zTURap31Q_EwbormKQ7EiZBT19vsP9UM2PSYfW8jEB9CyAXeuwh52khBUkNveYcjnwYHqrwjnebjAoaXv15PrrWDfGG8Fb57ycmZXPLkifUFq_c_T6fJ6fDzpKzipl6mOcWcr_H-ZVk6R4vz0yX1AURs2saXAyVRAWR5GheCytyTbZAzhlqS7ZQKY-GUQbm6yz8r9OajcGuVbk"/>
+</a>
+<a class="text-outline hover:text-primary transition-colors w-6 h-6 block" href="https://www.linkedin.com/in/zohar-avramoviz-833072362" rel="noopener noreferrer" target="_blank">
+<img alt="LinkedIn" class="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxLiblJNEnM2CqBNQ17LafS5dbiTeoCdL8z2k7O4a1fcZ2n529cIfbIb-rUtwpQs_vWTK7VQGdBKHL1lKTQNCLUVcpRRhRK-YJULnR7iCyKY1mHSKzw7W6U1IlXEdK7bXcSaV2Ral3aM2aNzQ0pG2G2d1jH8pmVb70f0Y8uVrAlxLLOMs9YitdFgHPMPnsfoSDcDP6krZ2q13DUCr9P3mwhC1JFXGLjWu6cNOghTsj8fCfedfQlP917ngrzR8vCKmyOypzuKnqiSs"/>
+</a>
+</div>
+<a class="btn-primary px-6 py-2.5 rounded-full font-label-md text-label-md font-semibold" download="" href="Zohar_Avramoviz_CV 0523805476.pdf" rel="noopener noreferrer" target="_blank">View Resume</a>
+</div>
+</div>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-12 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-7 space-y-8">
+<div class="inline-flex items-center gap-3 bg-primary-container/10 border border-primary/20 px-5 py-2 rounded-full shadow-sm">
+<span class="w-2.5 h-2.5 bg-secondary rounded-full animate-pulse"></span>
+<span class="text-on-surface font-label-md text-label-md font-medium tracking-wide">Available for Software Development Opportunities</span>
+</div>
+<h1 class="font-headline-xl-mobile md:font-display-lg text-headline-xl-mobile md:text-display-lg leading-tight text-on-surface">Backend Developer Focused on <br/><span class="gradient-text">Secure &amp; Scalable Systems</span></h1>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-2xl">
+                    Computer Science student specializing in backend development, secure systems, REST APIs, cloud-based architecture and AI/NLP projects.
+                </p>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-2xl">
+                    I build practical software products with clean architecture, strong backend foundations, and a focus on real-world usability.
+                </p>
+<div class="flex flex-wrap gap-5 pt-6 items-center">
+<a class="btn-primary px-8 py-3.5 rounded-xl font-label-md text-label-md font-semibold flex items-center gap-2" href="#projects"><span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>rocket_launch</span> View Projects</a>
+<a class="bg-surface-container border border-outline-variant hover:border-primary hover:bg-surface-container-high text-on-surface px-8 py-3.5 rounded-xl font-label-md text-label-md font-semibold transition-all" download="" href="Zohar_Avramoviz_CV.pdf" rel="noopener noreferrer" target="_blank">Download Resume</a>
+<a class="text-on-surface hover:text-primary transition-colors font-label-md text-label-md px-4 py-3.5 font-medium" href="#contact">Contact Me</a>
+<div class="flex items-center gap-5 ml-4 border-l border-outline-variant/40 pl-6">
+<a class="text-outline hover:text-primary transition-colors w-7 h-7 block" href="https://github.com/ZoharTalAb" rel="noopener noreferrer" target="_blank">
+<img alt="GitHub" class="w-full h-full object-contain filter invert opacity-80 hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkUNd5WLBKRSMzla9q9dsenEOJelPvHD1U-cnVjL1JFJyU9aP4_GF8lxb9Azwd3zTURap31Q_EwbormKQ7EiZBT19vsP9UM2PSYfW8jEB9CyAXeuwh52khBUkNveYcjnwYHqrwjnebjAoaXv15PrrWDfGG8Fb57ycmZXPLkifUFq_c_T6fJ6fDzpKzipl6mOcWcr_H-ZVk6R4vz0yX1AURs2saXAyVRAWR5GheCytyTbZAzhlqS7ZQKY-GUQbm6yz8r9OajcGuVbk"/>
+</a>
+<a class="text-outline hover:text-primary transition-colors w-7 h-7 block" href="https://www.linkedin.com/in/zohar-avramoviz-833072362" rel="noopener noreferrer" target="_blank">
+<img alt="LinkedIn" class="w-full h-full object-contain opacity-80 hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxLiblJNEnM2CqBNQ17LafS5dbiTeoCdL8z2k7O4a1fcZ2n529cIfbIb-rUtwpQs_vWTK7VQGdBKHL1lKTQNCLUVcpRRhRK-YJULnR7iCyKY1mHSKzw7W6U1IlXEdK7bXcSaV2Ral3aM2aNzQ0pG2G2d1jH8pmVb70f0Y8uVrAlxLLOMs9YitdFgHPMPnsfoSDcDP6krZ2q13DUCr9P3mwhC1JFXGLjWu6cNOghTsj8fCfedfQlP917ngrzR8vCKmyOypzuKnqiSs"/>
+</a>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 relative group mt-16 lg:mt-0">
+<div class="absolute -inset-4 bg-primary/5 blur-3xl rounded-full transition-colors"></div>
+<div class="relative glass rounded-[2.5rem] glow-border overflow-hidden p-8 aspect-square flex flex-col justify-center items-center gap-8">
+<div class="relative">
+<div class="absolute inset-0 bg-primary/20 blur-xl rounded-full"></div>
+<img alt="Zohar Avramoviz Portrait" class="relative w-56 h-56 rounded-3xl object-cover transition-all duration-500 portrait-glow p-1 bg-surface-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhzXlz1tD_GT-jHEu9q7r0PVtkY6Rthw1SkhMgWsDXZSX5PjErkxSeYRgxF2fRrXlwyxH1G6vVXfIsKdrybvE1dyX3GjS7neoLqafl_hFZnFuBJj5SN_ehrqMZ8KeHk6BR65gVhTfXGhDDqDytZvfNFfamkLJFJPxbdDWuJt5n3jCjKw8OJw4n40B2MitpG8ZiLdOZEJp1i_RBMpoGdU0_Exg1VCi_MogrcNE-io5dLU99vWpseOFbpy_uvz9_Dp9dd5JGcYSetG0"/>
+</div>
+<div class="grid grid-cols-2 gap-4 w-full mt-2">
+<div class="bg-surface-container-lowest/80 p-3.5 rounded-xl border border-outline-variant/40 flex items-center gap-3 hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">FastAPI</span>
+</div>
+<div class="bg-surface-container-lowest/80 p-3.5 rounded-xl border border-outline-variant/40 flex items-center gap-3 hover:border-secondary/50 transition-colors">
+<span class="material-symbols-outlined text-secondary">dock</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Docker</span>
+</div>
+<div class="bg-surface-container-lowest/80 p-3.5 rounded-xl border border-outline-variant/40 flex items-center gap-3 hover:border-tertiary/50 transition-colors">
+<span class="material-symbols-outlined text-tertiary">encrypted</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">AES-GCM</span>
+</div>
+<div class="bg-surface-container-lowest/80 p-3.5 rounded-xl border border-outline-variant/40 flex items-center gap-3 hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary">database</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">PostgreSQL</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Value Strip -->
+<div class="bg-surface-container-lowest border-y border-outline-variant/10">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-8 flex flex-wrap justify-center md:justify-between items-center gap-8 opacity-80 hover:opacity-100 transition-opacity duration-300">
+<span class="font-label-md text-label-md flex items-center gap-2 text-on-surface-variant font-medium tracking-wide"><span class="material-symbols-outlined text-base">settings_input_component</span> Python</span>
+<span class="font-label-md text-label-md flex items-center gap-2 text-on-surface-variant font-medium tracking-wide"><span class="material-symbols-outlined text-base">bolt</span> FastAPI</span>
+<span class="font-label-md text-label-md flex items-center gap-2 text-on-surface-variant font-medium tracking-wide"><span class="material-symbols-outlined text-base">storage</span> PostgreSQL</span>
+<span class="font-label-md text-label-md flex items-center gap-2 text-on-surface-variant font-medium tracking-wide"><span class="material-symbols-outlined text-base">dock</span> Docker</span>
+<span class="font-label-md text-label-md flex items-center gap-2 text-on-surface-variant font-medium tracking-wide"><span class="material-symbols-outlined text-base">security</span> Secure Systems</span>
+</div>
+</div>
+<!-- Featured Projects -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-section-gap" id="projects">
+<div class="flex justify-between items-end mb-16">
+<div class="space-y-4">
+<h2 class="font-headline-xl text-headline-xl">Featured Projects</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-3xl">Real-world applications demonstrating backend proficiency, robust security, full-stack architecture, and AI/NLP capabilities.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Flagship Project -->
+<div class="md:col-span-2 lg:col-span-3 glass rounded-[2rem] glow-border p-12 grid grid-cols-1 lg:grid-cols-2 gap-12 border border-primary/20 shadow-[0_0_40px_rgba(78,222,163,0.08)]">
+<div class="space-y-8 flex flex-col justify-center">
+<div class="space-y-4">
+<div class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-md font-label-md text-label-md font-bold uppercase tracking-wider border border-primary/20">Flagship Project</div>
+<h3 class="font-headline-xl text-headline-xl leading-tight">CryptoFile — Secure File Sharing &amp; Messaging Platform</h3>
+</div>
+<p class="text-on-surface-variant font-body-lg text-body-lg">CryptoFile is a highly secure, full-stack platform designed for encrypted file sharing, messaging, and steganography. It features a clean backend architecture, robust data protection mechanisms, and intuitive user workflows.</p>
+<div class="flex flex-wrap gap-3">
+<span class="font-label-md text-label-md bg-surface-container px-3.5 py-1.5 rounded-md border border-outline-variant/40 text-on-surface font-medium">Python</span>
+<span class="font-label-md text-label-md bg-surface-container px-3.5 py-1.5 rounded-md border border-outline-variant/40 text-on-surface font-medium">FastAPI</span>
+<span class="font-label-md text-label-md bg-surface-container px-3.5 py-1.5 rounded-md border border-outline-variant/40 text-on-surface font-medium">React</span>
+<span class="font-label-md text-label-md bg-surface-container px-3.5 py-1.5 rounded-md border border-outline-variant/40 text-on-surface font-medium">TypeScript</span>
+<span class="font-label-md text-label-md bg-surface-container px-3.5 py-1.5 rounded-md border border-outline-variant/40 text-on-surface font-medium">PostgreSQL</span>
+<span class="font-label-md text-label-md bg-surface-container px-3.5 py-1.5 rounded-md border border-outline-variant/40 text-on-surface font-medium">Docker</span>
+<span class="font-label-md text-label-md bg-surface-container px-3.5 py-1.5 rounded-md border border-outline-variant/40 text-on-surface font-medium">JWT</span>
+<span class="font-label-md text-label-md bg-surface-container px-3.5 py-1.5 rounded-md border border-outline-variant/40 text-on-surface font-medium">AES-GCM</span>
+<span class="font-label-md text-label-md bg-surface-container px-3.5 py-1.5 rounded-md border border-outline-variant/40 text-primary font-semibold">Clean Architecture</span>
+</div>
+<div class="flex flex-wrap gap-6 pt-4">
+<a class="inline-flex items-center gap-2.5 text-on-surface hover:text-primary transition-colors font-label-md text-label-md font-semibold" href="https://github.com/ZoharTalAb/CryptoFile" rel="noopener noreferrer" target="_blank">
+<img alt="GitHub" class="w-5 h-5 object-contain filter invert opacity-80 hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkUNd5WLBKRSMzla9q9dsenEOJelPvHD1U-cnVjL1JFJyU9aP4_GF8lxb9Azwd3zTURap31Q_EwbormKQ7EiZBT19vsP9UM2PSYfW8jEB9CyAXeuwh52khBUkNveYcjnwYHqrwjnebjAoaXv15PrrWDfGG8Fb57ycmZXPLkifUFq_c_T6fJ6fDzpKzipl6mOcWcr_H-ZVk6R4vz0yX1AURs2saXAyVRAWR5GheCytyTbZAzhlqS7ZQKY-GUQbm6yz8r9OajcGuVbk"/> GitHub
+                            </a>
+<a class="inline-flex items-center gap-2.5 text-primary hover:text-primary-container transition-colors font-label-md text-label-md font-semibold" href="https://cryptofile-fronted.onrender.com/" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-lg">open_in_new</span> Live Demo
+                            </a>
+<a class="inline-flex items-center gap-2.5 text-on-surface hover:text-primary transition-colors font-label-md text-label-md font-semibold" href="https://youtu.be/DEuJJifYZoI" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-lg">play_circle</span> Demo Video
+                            </a>
+</div>
+</div>
+<div class="bg-[#0d1117] rounded-2xl overflow-hidden border border-outline-variant/40 flex flex-col shadow-xl">
+<div class="bg-[#161b22] px-5 py-3 flex items-center gap-3 terminal-header border-b border-outline-variant/20">
+<span class="bg-[#ff5f56]"></span>
+<span class="bg-[#ffbd2e]"></span>
+<span class="bg-[#27c93f]"></span>
+<span class="ml-3 font-label-md text-label-md text-on-surface-variant tracking-wider">crypto_service.py</span>
+</div>
+<div class="p-8 font-label-md text-[15px] leading-relaxed text-[#c9d1d9] flex-1 overflow-x-auto">
+<pre><code><span class="text-[#ff7b72]">def</span> <span class="text-[#d2a8ff]">encrypt_payload</span>(data: <span class="text-[#ff7b72]">dict</span>, key: <span class="text-[#ff7b72]">bytes</span>):
+    nonce = secrets.token_bytes(<span class="text-[#79c0ff]">12</span>)
+    aesgcm = AESGCM(key)
+    ciphertext = aesgcm.encrypt(nonce, json.dumps(data).encode(), <span class="text-[#79c0ff]">None</span>)
+    <span class="text-[#ff7b72]">return</span> base64.b64encode(nonce + ciphertext)</code></pre>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="glass rounded-[2rem] glow-border p-10 flex flex-col h-full hover:shadow-[0_0_30px_rgba(78,222,163,0.05)] transition-shadow">
+<div class="h-48 bg-surface-container-lowest rounded-xl mb-8 overflow-hidden border border-outline-variant/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-7xl text-primary/30">dns</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-4">Server-Side Application — Node.js</h3>
+<p class="text-on-surface-variant font-body-lg text-body-lg mb-8 flex-1">A robust backend-focused team project developed with Node.js and Express. It emphasizes scalable server-side structuring, efficient REST API design, effective Git collaboration, and maintainable codebases.</p>
+<div class="flex flex-wrap gap-2.5 mb-8">
+<span class="font-label-md text-label-md bg-surface-container px-3 py-1 rounded-md border border-outline-variant/40 text-on-surface font-medium">Node.js</span>
+<span class="font-label-md text-label-md bg-surface-container px-3 py-1 rounded-md border border-outline-variant/40 text-on-surface font-medium">JavaScript</span>
+<span class="font-label-md text-label-md bg-surface-container px-3 py-1 rounded-md border border-outline-variant/40 text-on-surface font-medium">Express</span>
+<span class="font-label-md text-label-md bg-surface-container px-3 py-1 rounded-md border border-outline-variant/40 text-on-surface font-medium">REST APIs</span>
+<span class="font-label-md text-label-md bg-surface-container px-3 py-1 rounded-md border border-outline-variant/40 text-on-surface font-medium">Git</span>
+</div>
+<div class="flex flex-wrap gap-5 mt-auto border-t border-outline-variant/20 pt-6">
+<a class="text-on-surface hover:text-primary transition-colors font-label-md text-label-md font-semibold flex items-center gap-2" href="https://github.com/elad-hayek/HIT-Server-side-node-project" rel="noopener noreferrer" target="_blank">
+<img alt="GitHub" class="w-5 h-5 object-contain filter invert opacity-80 hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkUNd5WLBKRSMzla9q9dsenEOJelPvHD1U-cnVjL1JFJyU9aP4_GF8lxb9Azwd3zTURap31Q_EwbormKQ7EiZBT19vsP9UM2PSYfW8jEB9CyAXeuwh52khBUkNveYcjnwYHqrwjnebjAoaXv15PrrWDfGG8Fb57ycmZXPLkifUFq_c_T6fJ6fDzpKzipl6mOcWcr_H-ZVk6R4vz0yX1AURs2saXAyVRAWR5GheCytyTbZAzhlqS7ZQKY-GUQbm6yz8r9OajcGuVbk"/> GitHub</a>
+<a class="text-on-surface hover:text-primary transition-colors font-label-md text-label-md font-semibold flex items-center gap-2" href="https://youtu.be/C_Qln-5Neco?si=55jufBZlaHZOuc8V" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-lg">play_circle</span> Demo Video</a>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="glass rounded-[2rem] glow-border p-10 flex flex-col h-full hover:shadow-[0_0_30px_rgba(255,185,95,0.05)] transition-shadow">
+<div class="h-48 bg-surface-container-lowest rounded-xl mb-8 overflow-hidden border border-outline-variant/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-7xl text-secondary/30">psychology</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-4">Fake News Classification — NLP Project</h3>
+<p class="text-on-surface-variant font-body-lg text-body-lg mb-8 flex-1">An applied machine learning and Natural Language Processing (NLP) project focused on detecting fake news. It encompasses comprehensive text preprocessing, model training, evaluation, and accurate classification.</p>
+<div class="flex flex-wrap gap-2.5 mb-8">
+<span class="font-label-md text-label-md bg-surface-container px-3 py-1 rounded-md border border-outline-variant/40 text-on-surface font-medium">Python</span>
+<span class="font-label-md text-label-md bg-surface-container px-3 py-1 rounded-md border border-outline-variant/40 text-on-surface font-medium">Pandas</span>
+<span class="font-label-md text-label-md bg-surface-container px-3 py-1 rounded-md border border-outline-variant/40 text-on-surface font-medium">Scikit-learn</span>
+<span class="font-label-md text-label-md bg-surface-container px-3 py-1 rounded-md border border-outline-variant/40 text-on-surface font-medium">NLP</span>
+<span class="font-label-md text-label-md bg-surface-container px-3 py-1 rounded-md border border-outline-variant/40 text-on-surface font-medium">Machine Learning</span>
+</div>
+<div class="mt-auto border-t border-outline-variant/20 pt-6">
+<a class="text-on-surface hover:text-secondary transition-colors font-label-md text-label-md font-semibold flex items-center gap-2" href="https://github.com/ZoharTalAb/Fake-News-Classification-NLP" rel="noopener noreferrer" target="_blank">
+<img alt="GitHub" class="w-5 h-5 object-contain filter invert opacity-80 hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkUNd5WLBKRSMzla9q9dsenEOJelPvHD1U-cnVjL1JFJyU9aP4_GF8lxb9Azwd3zTURap31Q_EwbormKQ7EiZBT19vsP9UM2PSYfW8jEB9CyAXeuwh52khBUkNveYcjnwYHqrwjnebjAoaXv15PrrWDfGG8Fb57ycmZXPLkifUFq_c_T6fJ6fDzpKzipl6mOcWcr_H-ZVk6R4vz0yX1AURs2saXAyVRAWR5GheCytyTbZAzhlqS7ZQKY-GUQbm6yz8r9OajcGuVbk"/> GitHub Repo</a>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-section-gap" id="about">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-5 space-y-8 pr-0 lg:pr-8">
+<h2 class="font-headline-xl text-headline-xl">About Me</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg">
+                        I am a Computer Science student with a strong specialization in backend development. I possess a natural aptitude for analytical thinking and problem-solving, driving my passion to architect scalable, resilient systems. I excel at understanding complex, end-to-end architectures and transforming requirements into practical, high-quality software products. My professional background in education and leadership has uniquely equipped me with excellent communication skills, a deep sense of ownership, and a structured, methodical approach to tackling technical challenges.
+                    </p>
+</div>
+<div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 lg:mt-0">
+<div class="bg-surface-container p-8 rounded-2xl border border-outline-variant/30 hover:bg-surface-container-high transition-colors hover:border-primary/30">
+<span class="material-symbols-outlined text-primary text-3xl mb-5">terminal</span>
+<h4 class="font-headline-md text-headline-md text-lg mb-3">Technical Problem Solver</h4>
+<p class="text-on-surface-variant text-body-md">Utilizes strong analytical thinking and hands-on experience to engineer practical, efficient software solutions.</p>
+</div>
+<div class="bg-surface-container p-8 rounded-2xl border border-outline-variant/30 hover:bg-surface-container-high transition-colors hover:border-secondary/30">
+<span class="material-symbols-outlined text-secondary text-3xl mb-5">forum</span>
+<h4 class="font-headline-md text-headline-md text-lg mb-3">Clear Communicator</h4>
+<p class="text-on-surface-variant text-body-md">Highly experienced in instruction, mentoring, and distilling complex technical concepts into easily understandable terms.</p>
+</div>
+<div class="bg-surface-container p-8 rounded-2xl border border-outline-variant/30 hover:bg-surface-container-high transition-colors hover:border-tertiary/30">
+<span class="material-symbols-outlined text-tertiary text-3xl mb-5">inventory_2</span>
+<h4 class="font-headline-md text-headline-md text-lg mb-3">Product-Oriented Developer</h4>
+<p class="text-on-surface-variant text-body-md">Dedicated to clean architecture, intuitive usability, and delivering highly maintainable, scalable code.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Skills Section -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-section-gap" id="skills">
+<h2 class="font-headline-xl text-headline-xl mb-16 text-center">Technical Skills</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+<div class="glass p-8 rounded-2xl glow-border text-center flex flex-col">
+<span class="font-label-md text-label-md block text-outline mb-6 uppercase tracking-widest text-xs font-semibold">Languages</span>
+<ul class="space-y-4 font-body-md text-on-surface font-medium flex-1">
+<li>Python</li>
+<li>Java</li>
+<li>C#</li>
+<li>JavaScript</li>
+</ul>
+</div>
+<div class="glass p-8 rounded-2xl glow-border text-center flex flex-col">
+<span class="font-label-md text-label-md block text-outline mb-6 uppercase tracking-widest text-xs font-semibold">Backend</span>
+<ul class="space-y-4 font-body-md text-on-surface font-medium flex-1">
+<li>FastAPI</li>
+<li>Node.js</li>
+<li>REST APIs</li>
+<li>JWT Auth</li>
+<li>API Design</li>
+</ul>
+</div>
+<div class="glass p-8 rounded-2xl glow-border text-center flex flex-col">
+<span class="font-label-md text-label-md block text-outline mb-6 uppercase tracking-widest text-xs font-semibold">Frontend</span>
+<ul class="space-y-4 font-body-md text-on-surface font-medium flex-1">
+<li>React</li>
+<li>TypeScript</li>
+<li>HTML5</li>
+<li>CSS3</li>
+</ul>
+</div>
+<div class="glass p-8 rounded-2xl glow-border text-center flex flex-col">
+<span class="font-label-md text-label-md block text-outline mb-6 uppercase tracking-widest text-xs font-semibold">Databases</span>
+<ul class="space-y-4 font-body-md text-on-surface font-medium flex-1">
+<li>PostgreSQL</li>
+<li>MongoDB</li>
+<li>Cloudflare D1</li>
+<li>Cloudflare R2</li>
+</ul>
+</div>
+<div class="glass p-8 rounded-2xl glow-border text-center flex flex-col">
+<span class="font-label-md text-label-md block text-outline mb-6 uppercase tracking-widest text-xs font-semibold">Tools</span>
+<ul class="space-y-4 font-body-md text-on-surface font-medium flex-1">
+<li>Docker</li>
+<li>Git / GitHub</li>
+<li>CI/CD</li>
+<li>Postman</li>
+<li>IDE Tools</li>
+</ul>
+</div>
+<div class="glass p-8 rounded-2xl glow-border text-center flex flex-col">
+<span class="font-label-md text-label-md block text-outline mb-6 uppercase tracking-widest text-xs font-semibold">Concepts</span>
+<ul class="space-y-4 font-body-md text-on-surface font-medium flex-1">
+<li>OOP &amp; Design</li>
+<li>Clean Arch</li>
+<li>Data Security</li>
+<li>System Design</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Experience & Education -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-section-gap grid grid-cols-1 lg:grid-cols-2 gap-24 lg:gap-32" id="experience">
+<div>
+<h2 class="font-headline-xl text-headline-xl mb-16">Experience</h2>
+<div class="space-y-16 border-l-2 border-outline-variant/30 pl-8 ml-2">
+<div class="relative">
+<span class="absolute -left-[41px] top-2 w-4 h-4 rounded-full bg-primary ring-4 ring-primary/20"></span>
+<h4 class="font-headline-lg text-headline-md mb-1">Digital Campus Manager</h4>
+<p class="text-primary font-label-md text-label-md mb-3 font-semibold">Holon Municipality, Israel | 2024–2025</p>
+<p class="text-on-surface-variant text-body-md">Spearheaded digital education initiatives, managed technology integration across facilities, and orchestrated staff training and technical conferences.</p>
+</div>
+<div class="relative">
+<span class="absolute -left-[41px] top-2 w-4 h-4 rounded-full bg-outline-variant ring-4 ring-outline-variant/10"></span>
+<h4 class="font-headline-lg text-headline-md mb-1">Mathematics Teacher &amp; Coordinator</h4>
+<p class="text-on-surface font-label-md text-label-md mb-3">Mikve Israel / Harel Educational Campus, Israel | 2023–2025</p>
+<p class="text-on-surface-variant text-body-md">Led comprehensive mathematics instruction, developed robust curriculum processes, and provided ongoing professional support to teaching staff.</p>
+</div>
+<div class="relative">
+<span class="absolute -left-[41px] top-2 w-4 h-4 rounded-full bg-outline-variant ring-4 ring-outline-variant/10"></span>
+<h4 class="font-headline-lg text-headline-md mb-1">Jewish Community Educator</h4>
+<p class="text-on-surface font-label-md text-label-md mb-3">Torah Mitzion, Montreal, Canada | 2022–2023</p>
+<p class="text-on-surface-variant text-body-md">Conceptualized and executed bilingual educational programs, fostering community engagement and leading widespread cultural initiatives.</p>
+</div>
+<div class="relative">
+<span class="absolute -left-[41px] top-2 w-4 h-4 rounded-full bg-outline-variant ring-4 ring-outline-variant/10"></span>
+<h4 class="font-headline-lg text-headline-md mb-1">Explosives Instructor</h4>
+<p class="text-on-surface font-label-md text-label-md mb-3">Combat Engineering Corps — IDF | 2018–2022</p>
+<p class="text-on-surface-variant text-body-md">Delivered rigorous, specialized technical training to commanders and elite units operating in demanding, high-pressure environments.</p>
+</div>
+</div>
+</div>
+<div>
+<h2 class="font-headline-xl text-headline-xl mb-16">Education</h2>
+<div class="space-y-8">
+<div class="glass p-10 rounded-2xl glow-border">
+<div class="flex items-start gap-6">
+<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/30 shrink-0 mt-1">
+<span class="material-symbols-outlined text-primary text-3xl">school</span>
+</div>
+<div>
+<h4 class="font-headline-lg text-headline-md mb-2">B.Sc. in Computer Science</h4>
+<p class="text-on-surface-variant font-label-md text-label-md font-medium">Holon Institute of Technology, Israel | 2023–Present</p>
+<p class="text-on-surface-variant text-body-md mt-4">Focusing on advanced algorithms, scalable architecture, and secure backend system design.</p>
+</div>
+</div>
+</div>
+<div class="glass p-10 rounded-2xl glow-border border-outline-variant/20 hover:border-outline-variant/40">
+<div class="flex items-start gap-6">
+<div class="w-14 h-14 bg-surface-container-high rounded-xl flex items-center justify-center border border-outline-variant/30 shrink-0 mt-1">
+<span class="material-symbols-outlined text-outline text-3xl">history_edu</span>
+</div>
+<div>
+<h4 class="font-headline-lg text-headline-md mb-2">B.Ed. in Education, Mathematics and Jewish Studies</h4>
+<p class="text-on-surface-variant font-label-md text-label-md font-medium">Shaanan Academic Religious Teachers’ College, Haifa, Israel | 2020–2023</p>
+<p class="text-on-surface-variant text-body-md mt-4">Successfully completed within a highly selective honors program, emphasizing analytical pedagogy.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-section-gap mb-24" id="contact">
+<div class="glass rounded-[3rem] p-16 text-center border border-outline-variant/30 relative overflow-hidden shadow-2xl">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-60"></div>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-secondary to-transparent opacity-30"></div>
+<h2 class="font-headline-xl text-headline-xl mb-6">Let's Connect</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-2xl mx-auto mb-16">
+                    I am actively seeking software development opportunities. Let's discuss how my backend expertise can contribute to your team.
+                </p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
+<a class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/30 hover:border-[#0077b5] hover:bg-surface-container transition-all group flex flex-col items-center justify-center shadow-sm" href="https://www.linkedin.com/in/zohar-avramoviz-833072362" rel="noopener noreferrer" target="_blank">
+<div class="w-12 h-12 mb-4 group-hover:scale-110 transition-transform flex items-center justify-center">
+<img alt="LinkedIn" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAqmkhl2P8cNel1cEqb7qTczbrUVVlItZIrhTcDTv9BI94TbguUlTV9Z6kDmwEV1rdf6MYJyGK34LCZxmH030uk-vlMmAgjPI2mNfQdu6ShfOawkrOkipCk1koyq57pDlVJuyuNzWAFrN4YzoCDxdzW2rv9gdnDTQ_YMs0IImF083G8COo_w-R5Ug2qMLeqQAItnaqmhZdZ8kDZn5-UIt9h6Erarwa5_nzyvroAkzMmvKWH-4Sx1J7DFQukIM0YWAn3otmVcKoinc"/>
+</div>
+<span class="font-label-md text-label-md block text-on-surface font-semibold tracking-wide">LinkedIn</span>
+</a>
+<a class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/30 hover:border-on-surface hover:bg-surface-container transition-all group flex flex-col items-center justify-center shadow-sm" href="https://github.com/ZoharTalAb" rel="noopener noreferrer" target="_blank">
+<div class="w-12 h-12 mb-4 group-hover:scale-110 transition-transform flex items-center justify-center">
+<img alt="GitHub" class="w-full h-full object-contain filter invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoJ2ae8v4KWICiFwsQizs5kyNhaMJsSm7vfkzurB7jONJIMBZILbIZOZxx7mwubY1HfQ7kDoC-h8SFNpboZ22VQzk8OM6nmxCV9OPkQu71LUyzprx2Dj1NICBD9axAp-UKlSJYJ5hkIpoH6dvyrPLF-RNkCnM7fUM52k3xtssXkXMY7ADHIP8O3IbK5xfI1wFrd-VOEzfntADgQ8DJLgZH2e7sIoEr48ESqKDd2YJdjSk1xlJHRmFNBZwyWwK-WKuqi5RD7bjjr2M"/>
+</div>
+<span class="font-label-md text-label-md block text-on-surface font-semibold tracking-wide">GitHub</span>
+</a>
+<a class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/30 hover:border-[#25D366] hover:bg-surface-container transition-all group flex flex-col items-center justify-center shadow-sm" href="https://wa.me/972523805476" rel="noopener noreferrer" target="_blank">
+<div class="w-12 h-12 mb-4 group-hover:scale-110 transition-transform flex items-center justify-center">
+<img alt="WhatsApp" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0MFnIYrwBl6_F58l8AOsuHo61e3CBTCIo-2gGYdpvCuPGAq2MmT8BDxUHFD1g4B-RFPMopX5GTxK1sg38uQKepytTLlGkHDF_E7tQh-Q6FDuzVk-kv_cK8SsxW2smqejsM2gWCwOPO2wITIrLGxvHgVLhV8YnmyVhWjL3hwq55DUcngDeAtaJaNdg0x_US-cOy23WYmSrLylIux05CWITjtqJgLm4qOi01j33sSVEK79WaW2M7-G74NkzT6ER28vs4Sq_NJayQWg"/>
+</div>
+<span class="font-label-md text-label-md block text-on-surface font-semibold tracking-wide">WhatsApp</span>
+</a>
+<a class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/30 hover:border-[#EA4335] hover:bg-surface-container transition-all group flex flex-col items-center justify-center shadow-sm" href="mailto:Zohrtal@gmail.com">
+<div class="w-12 h-12 mb-4 group-hover:scale-110 transition-transform flex items-center justify-center">
+<img alt="Gmail" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSxluPm3GLb77WgsO1ApHOX7Wh-Z8__VKg3JOPYYpcMp5iTqeXmDkE1FD9XftGZtn-SfTWnl-cqKMeFF2iUmtUvzzsSaHmu3mDQnOQ_VKJcC1Hy2XrrcnQ_Os0kiDserObz097Pfz6_7luzf48mdszcu5i--lIrn69vVsdv8toL8TMh0zSfgra3iaJpUGogc4RRyKUYRm9-WfhxoPb2ulOftXCrzWGjzL2mcuaLjVf-05bIePx_zWKNvVKUHCsEEx1EdwvWFtBE0A"/>
+</div>
+<span class="font-label-md text-label-md block text-on-surface font-semibold tracking-wide">Gmail</span>
+</a>
+</div>
+<div class="inline-flex items-center justify-center gap-3 bg-surface-container px-6 py-3 rounded-full border border-outline-variant/30 text-on-surface font-label-md text-label-md font-medium">
+<span class="material-symbols-outlined text-primary text-xl">phone</span> 052-380-5476
+                </div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/10">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 py-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-on-surface-variant font-body-md text-body-md text-center md:text-left">© 2026 Zohar Avramoviz. Engineered for clean code, robust security, and meaningful impact.</div>
+<div class="flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md font-medium" href="https://github.com/ZoharTalAb" rel="noopener noreferrer" target="_blank">GitHub</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md font-medium" href="https://www.linkedin.com/in/zohar-avramoviz-833072362" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md font-medium" href="#contact">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>
