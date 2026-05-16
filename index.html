@@ -200,6 +200,222 @@
             box-shadow: 0 0 30px rgba(78, 222, 163, 0.2), inset 0 0 20px rgba(78, 222, 163, 0.1);
             border: 1px solid rgba(78, 222, 163, 0.3);
         }
+
+
+        /* Mobile polish: keeps the desktop design, but makes the site easier to read and use on phones. */
+        @media (max-width: 767px) {
+            html { scroll-behavior: smooth; }
+            body { overflow-x: hidden; }
+
+            header .h-20 {
+                height: auto !important;
+                min-height: 64px !important;
+                padding-top: 10px !important;
+                padding-bottom: 10px !important;
+            }
+            header .max-w-container-max {
+                gap: 12px !important;
+            }
+            header .text-headline-md {
+                font-size: 18px !important;
+                line-height: 1.2 !important;
+            }
+            header .btn-primary {
+                padding: 8px 14px !important;
+                font-size: 11px !important;
+                white-space: nowrap;
+            }
+            main { padding-top: 72px !important; }
+            section { scroll-margin-top: 86px; }
+
+            .py-section-gap {
+                padding-top: 56px !important;
+                padding-bottom: 56px !important;
+            }
+            .gap-gutter { gap: 20px !important; }
+
+            h1, .text-display-lg, .font-display-lg {
+                font-size: 34px !important;
+                line-height: 1.12 !important;
+                letter-spacing: -0.03em !important;
+            }
+            .text-headline-xl, .font-headline-xl {
+                font-size: 28px !important;
+                line-height: 1.2 !important;
+            }
+            .text-headline-lg, .font-headline-lg {
+                font-size: 23px !important;
+                line-height: 1.25 !important;
+            }
+            .text-headline-md, .font-headline-md {
+                font-size: 18px !important;
+                line-height: 1.35 !important;
+            }
+            .text-body-lg, .font-body-lg {
+                font-size: 15px !important;
+                line-height: 1.65 !important;
+            }
+            .text-body-md, .font-body-md {
+                font-size: 14px !important;
+                line-height: 1.6 !important;
+            }
+            .text-label-md, .font-label-md {
+                font-size: 11px !important;
+                letter-spacing: 0.03em !important;
+            }
+
+            main > section:first-of-type {
+                padding-top: 34px !important;
+                padding-bottom: 48px !important;
+            }
+            main > section:first-of-type .space-y-8 > * + * {
+                margin-top: 20px !important;
+            }
+            main > section:first-of-type .inline-flex.rounded-full {
+                max-width: 100%;
+                align-items: flex-start;
+                padding: 8px 12px !important;
+            }
+            main > section:first-of-type .flex.flex-wrap.gap-5 {
+                gap: 12px !important;
+                padding-top: 12px !important;
+            }
+            main > section:first-of-type .btn-primary,
+            main > section:first-of-type a.bg-surface-container,
+            main > section:first-of-type a[href="#contact"] {
+                width: 100%;
+                justify-content: center;
+                padding: 12px 16px !important;
+                border-radius: 12px !important;
+            }
+            main > section:first-of-type .border-l {
+                border-left: 0 !important;
+                padding-left: 0 !important;
+                margin-left: 0 !important;
+                width: 100%;
+                justify-content: center;
+                padding-top: 4px !important;
+            }
+            main > section:first-of-type .aspect-square {
+                aspect-ratio: auto !important;
+                border-radius: 28px !important;
+                padding: 22px !important;
+                gap: 20px !important;
+            }
+            img[alt="Zohar Avramoviz Portrait"] {
+                width: 150px !important;
+                height: 150px !important;
+                border-radius: 22px !important;
+            }
+            main > section:first-of-type .grid.grid-cols-2.gap-4 {
+                gap: 10px !important;
+            }
+            main > section:first-of-type .grid.grid-cols-2.gap-4 > div {
+                padding: 10px !important;
+                gap: 8px !important;
+            }
+
+            .p-16 { padding: 28px 20px !important; }
+            .p-12 { padding: 24px !important; }
+            .p-10 { padding: 22px !important; }
+            .p-8 { padding: 20px !important; }
+            .rounded-\[3rem\] { border-radius: 24px !important; }
+            .rounded-\[2\.5rem\] { border-radius: 24px !important; }
+            .rounded-\[2rem\] { border-radius: 22px !important; }
+
+            #projects .mb-16,
+            #skills .mb-16,
+            #experience .mb-16 {
+                margin-bottom: 28px !important;
+            }
+            #projects .space-y-8 > * + * {
+                margin-top: 20px !important;
+            }
+            #projects .h-48 {
+                height: 130px !important;
+                margin-bottom: 20px !important;
+            }
+            #projects pre {
+                font-size: 11px !important;
+                line-height: 1.55 !important;
+            }
+            #projects .bg-\[\#0d1117\] .p-8 {
+                padding: 16px !important;
+            }
+            #projects .terminal-header span {
+                width: 9px !important;
+                height: 9px !important;
+            }
+            #projects .flex.flex-wrap.gap-6 {
+                gap: 14px !important;
+            }
+
+            #about .grid.md\:grid-cols-3,
+            #skills .grid,
+            #contact .grid {
+                gap: 14px !important;
+            }
+            #skills .grid {
+                grid-template-columns: 1fr !important;
+            }
+            #skills li {
+                margin-top: 8px !important;
+                margin-bottom: 8px !important;
+            }
+            #skills .space-y-4 > * + * {
+                margin-top: 10px !important;
+            }
+
+            #experience {
+                gap: 56px !important;
+            }
+            #experience .space-y-16 > * + * {
+                margin-top: 38px !important;
+            }
+            #experience .pl-8 {
+                padding-left: 22px !important;
+            }
+            #experience .absolute.-left-\[41px\] {
+                left: -31px !important;
+            }
+
+            #contact .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+            #contact .grid a {
+                padding: 18px 12px !important;
+                border-radius: 16px !important;
+            }
+            #contact img {
+                width: 34px !important;
+                height: 34px !important;
+            }
+            #contact .w-12.h-12 {
+                width: 34px !important;
+                height: 34px !important;
+                margin-bottom: 10px !important;
+            }
+            #contact p {
+                margin-bottom: 30px !important;
+            }
+
+            footer .py-10 { padding-top: 24px !important; padding-bottom: 24px !important; }
+            footer .gap-8 { gap: 18px !important; }
+        }
+
+        @media (max-width: 420px) {
+            h1, .text-display-lg, .font-display-lg {
+                font-size: 30px !important;
+            }
+            .btn-primary,
+            a.bg-surface-container {
+                font-size: 11px !important;
+            }
+            #contact .grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
     </style>
 </head><body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container antialiased">
 <!-- Header Navigation -->
